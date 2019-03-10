@@ -2,10 +2,6 @@
 
 # Select Query
 
-* Queries written to retrive info from database must contain SELECT and FROM clauses
-* SELECT clause specifies columns should be in result table
-* FROM clause specifies tables to be used
-
 Select columns example:
 
 ```
@@ -48,11 +44,63 @@ FROM table_name
 WHERE column_three = 'value1' OR column_three = 'value2';
 ```
 
-# Using Wildcards
-
 ```
 SELECT column_one, column_two
 FROM table_name
 WHERE column_three = 'value1' AND column_four = 'some_other_value';
+```
+
+
+# Using Wildcards
+
+To find an attribute that contains a word:
+
+```
+SELECT column_one, column_two
+FROM table_name
+WHERE column_three LIKE '%value%';
+```
+
+If we don't know whether upper or lower-case, we can use LOWER():
+
+```
+SELECT column_one, column_two
+FROM table_name
+WHERE LOWER(column_three) LIKE '%value%';
+```
+
+To search for numeric value where first digit is "4" with 4 unknown digits following it:
+
+```
+SELECT column_one, column_two, column_three
+FROM table_name
+WHERE column_three LIKE '4____';
+```
+
+To find all values where first digit is not 4 in this sequence, we use NOT LIKE:
+
+```
+SELECT column_one, column_two, column_three
+FROM table_name
+WHERE column_three NOT LIKE '4____';
+```
+
+# Comments in PostgreSQL
+
+Single-line
+
+```
+-- Comment
+```
+
+Multi-line
+
+```
+/*
+Comment line one
+line two
+line three
+blah
+*/
 ```
 
