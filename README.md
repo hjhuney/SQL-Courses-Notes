@@ -1,6 +1,6 @@
 # SQL-Course-Notes
 
-# Select Query
+## Select Query
 
 Select columns example:
 
@@ -16,7 +16,7 @@ FROM table_name;
 ```
 
 
-# Where Condition
+## Where Condition
 
 Allows us to narrow down select query to specific condition. 
 
@@ -34,7 +34,7 @@ FROM table_name
 WHERE column_three = column_four;
 ```
 
-# Logical Conditions (AND, OR)
+## Logical Conditions (AND, OR)
 
 Add logical conditions AND or OR to do multiple conditions. 
 
@@ -51,7 +51,7 @@ WHERE column_three = 'value1' AND column_four = 'some_other_value';
 ```
 
 
-# Using Wildcards
+## Using Wildcards
 
 To find an attribute that contains a word:
 
@@ -85,7 +85,7 @@ FROM table_name
 WHERE column_three NOT LIKE '4____';
 ```
 
-# Comments in PostgreSQL
+## Comments in PostgreSQL
 
 Single-line
 
@@ -104,3 +104,30 @@ blah
 */
 ```
 
+# Working with Arimethic Data Types
+
+## Alter Table
+
+Add column. Remember to specify datatype (e.g. float8). 
+
+```
+ALTER TABLE table_name
+ADD COLUMN new_column_name float8;
+```
+
+Set value of new column to sum of some other columns:
+
+```
+UPDATE table_name
+SET new_column = old_column_1 + old_column_2 + old_column_3;
+```
+
+Avoid divide by zero error with WHERE clause:
+
+```
+UPDATE table_name
+SET new_column_pct = (column_1 / column_4) * 100
+WHERE column_4 > 0;
+```
+
+## ORDER BY
