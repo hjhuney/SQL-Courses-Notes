@@ -104,7 +104,7 @@ blah
 */
 ```
 
-# Working with Arimethic Data Types
+# Working with Data
 
 ## Alter Table
 
@@ -130,4 +130,54 @@ SET new_column_pct = (column_1 / column_4) * 100
 WHERE column_4 > 0;
 ```
 
-## ORDER BY
+## Order By
+
+View by ascending order (ASC) or descneding order (DESC) by column:
+
+```
+SELECT * 
+FROM table_name
+ORDER BY column_1 ASC;
+```
+
+Order by multiple columns:
+
+```
+SELECT * 
+FROM table_name
+ORDER BY column_1 ASC, column_2 ASC;
+```
+
+Default order is ascending, so the below code will do the same as above:
+
+```
+SELECT * 
+FROM table_name
+ORDER BY column_1, column_2;
+```
+
+## String Operations
+
+Length function returns length of string:
+
+```
+SELECT column1, len(column1)
+FROM table_name;
+```
+
+Left / right functions returns only x number of characters from the left / right side:
+
+```
+SELECT left(column1, 4)
+FROM table_name;
+```
+
+Reverse function reverses the string:
+
+```
+SELECT reverse(column1)
+FROM table_name;
+```
+
+## Dates
+
