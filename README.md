@@ -179,5 +179,47 @@ SELECT reverse(column1)
 FROM table_name;
 ```
 
-## Dates
+## Temporary Columns
 
+Create an added temporary column for exploration:
+
+```
+SELECT *, column2 - column1 AS column5
+FROM table_name;
+```
+
+
+
+## Date Operations
+
+Can add and subtract differences between dates:
+
+```
+SELECT *, date_column2 - date_column1 AS new_date_column
+FROM table_name;
+```
+
+Conduct date operations in years:
+
+```
+SELECT *, DATE_PART('year', date_column_1) - DATE_PART('year', date_column_2) AS years_existed
+FROM table_name
+ORDER BY years_existed;
+```
+
+Find all entries with month of November:
+
+```
+SELECT * 
+FROM table_name
+WHERE DATE_PART('month', column1) - 11 = 0;
+```
+
+Difference in time in years, months, days format:
+
+```
+SELECT *, AGE(column1, column2) AS total_age
+FROM table_name;
+```
+
+## Data Type Conversions
