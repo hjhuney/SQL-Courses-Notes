@@ -223,3 +223,37 @@ FROM table_name;
 ```
 
 ## Data Type Conversions
+
+To change dtype use CAST:
+
+```
+SELECT CAST(year AS varchar(4))
+FROM table_name;
+```
+
+Can also use "::"
+
+```
+SELECT year::varchar(4)
+FROM table_name;
+```
+
+## Nulls
+
+Find nulls:
+
+```
+SELECT *
+FROM table_name
+WHERE column1 IS NULL;
+```
+
+
+Average from other columns:
+
+```
+UPDATE table_name
+SET missing_column_data = round((column1 + column2 + column3) / 3)
+WHERE column4 = 'value1';
+```
+```
